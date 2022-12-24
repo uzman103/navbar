@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <script src="https://kit.fontawesome.com/d6b07f2217.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    background-color: black;
+}
+a,a:hover{
+            text-decoration: none;
+            color: #fff
+}
+.body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    background-color: #181b21;
+
+}
+.youtube-dash{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 500; 
+    overflow: hidden;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    height: 80px;
+    width: 100%;
+    padding: 0 30px;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(113 119 144 / 25%);
+
+}
+.logo a{
+    color: #fff;
+font-size: 25px;
+
+}
+.logo a i{
+    background-color: red;
+    font-size: 20px;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    
+}
+.search-bar{
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    padding-left: 16px;
+    border-radius: 4px;
+}
+.search-bar input{
+    width: 100%;
+    height: 45px;
+    border: none;
+    background-color:#f2f2f2;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0px 20px 0px 20px;
+    color: #000;
+}
+.search-bar i.fa-magnifying-glass{
+    position: absolute;
+    right: 45px;
+    font-size: 17px;
+    color: rgb(33, 32, 32);
+    background-color: #f2f2f2;
+    padding: 14px 25px;
+    cursor: pointer;
+    border-left: 1px solid rgb(34, 34, 34);
+}
+.fa-microphone{
+
+    color: #fff;
+    font-size: 30px;
+    padding-left: 25px;
+    cursor: pointer;
+}
+.header-profile{
+    
+    display: flex;
+    align-items: center;
+    padding: 0 15px 0 40px;
+
+}
+.header-profile i{
+    font-size: 25px;
+    margin-right: 22px;
+    color: #f9fafb;
+}
+.notification{
+    position: relative;
+}
+.notification .notification-number{
+    position: absolute;
+    background-color: #ee7616;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    font-size: 10px;
+    border-radius: 50%;
+    justify-content: center;
+    color: #fff;
+    right: 10px;
+    top: -10px;
+}
+.profile-user{
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    margin-left: 22px;
+}
+.wrapper{
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+}
+.left-side{
+    flex-basis: 240px;
+    border-right: 1px solid rgba(113 119 114 / 25%);
+    padding: 25px 10px;
+    /* overflow: hidden; */
+    flex-shrink: 0;
+    /* transition: 0.5; */
+}
+.side-menu{
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+}
+.side-menu a{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: #f9fafb;
+    font-size: 19px;
+    font-weight: 400;
+    border-radius: 6px;
+}
+.side-wrapper + .side-wrapper{
+    margin-top: 20px;
+}
+.side-menu a.active{
+    color: #000;
+    background-color: #e5e5e5;
+}
+.side-menu a:hover{
+    background-color: #999ba5;
+}
+.side-menu i{
+    width: 30px;
+    color: orange;
+    margin-right: 8px;
+}
+.side-title{
+    font-size: 17px;
+    color: rgba(113 119 144/ 78%);
+    margin-bottom: 14px;
+}
+.left-side:hover{
+    overflow: auto;
+    height: 100vh;
+}
+.right-side{
+    width: 100%;
+    overflow: auto;
+}
+.main-header{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(23, 224, 56, 0.25);
+    flex-shrink: 0;
+    height: 55px;
+}.main-header .header-menu a{
+    padding: 8px 20px;
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.main-header-link{
+    color: #f3eeee;
+    border-radius: 50px;
+    background-color: rgb(14, 14, 14);
+    margin-right: 35px;
+    
+
+}
+.main-header-link.active,
+.main-header-link:hover{
+    color:#1f1f1f;
+    background-color: #fff;
+}
+.main-header .header-menu{
+    margin-top: 65px;
+}
+.content-wrapper{
+    display: flex;
+    flex-direction: column;
+    color: #f9fafb;
+    padding: 0 40px;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(16 18 27 / 40%) ;
+}
+.apps-card{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.apps-card .app-card{
+    display: flex;
+    flex-direction: column;
+    width: calc(25% - 20px);
+    font-size: 16px;
+    background-color: rgba(146 151 179 / 79%);
+    padding: 0 20px;
+    cursor: pointer;
+    border-radius: 14px;
+    border: 1px solid rgba(16 18 27 / 40%);
+    transition: 0.3s;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.apps-card .app-card img{
+    width: 70%;
+    flex-shrink: 0;
+    border-radius: 6px;
+    margin-right: 12px;
+}
+.chanel-image{
+    width: 200px;
+    border-radius: 30px;
+    margin-right: 15px;
+}
+.flex-div{
+    display: flex;
+    margin-top: 10px;
+}
+.content-section{
+    margin-top: 30px;
+}
+.content-text{
+    font-weight: 500;
+    font: 14px;
+    margin-top: 5px;
+    line-height: 1.7em;
+    color: #96a1a1;
+}
+.apps-card:hover{
+    transform: scale(1.02);
+    background-color: rgba(16 18 27 / 40%);
+}
+::-webkit-scrollbar{
+    width: 7px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="youtube-dash">
+        <div class="header">
+            <div class="logo">
+             <a href="#"><i class="fa-solid fa-play"></i>CODEMANIA</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="search" name="">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-microphone"></i>
+            </div>
+            <div class="header-profile">
+                <i class="fa-solid fa-video"></i>
+            <div class="notification">
+                <span class="notification-number">5</span>
+                    <i class="fa-solid fa-bell"></i>
+            </div>
+            <i class="fa-solid fa-sun"></i>
+            <a href="#"><img class="profile-user" src="https://media.gettyimages.com/id/1365891482/photo/picture-of-mausoleum-of-quaid-e-azam-mazar-e-quaid.jpg?s=612x612&w=gi&k=20&c=yDWzeO3cyK2p6434qlWVM9Gz40WV3-pZnzxnCBrSnaw="></a>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="left-side">
+            <div class="side-wrapper">
+                <div class="side-menu">
+                    <a class="active" href="#">
+                        <i class="fa-sharp fa-solid fa-house"></i>Home
+                    </a>
+                    <a href="#">
+                        <i class="fa-sharp fa-solid fa-camera"></i>Reels
+                    </a>
+                    <a href="#">
+                        <i class="fa-sharp fa-solid fa-chart-pie"></i>Subscription
+                    </a>
+                    <a href="#">
+                        <i class="fa-sharp fa-solid fa-book"></i>Library
+                    </a>
+                    <a href="#">
+                        <i class="fa-sharp fa-solid fa-clock-rotate-left"></i>History
+                    </a>
+                    <a href="#">
+                        <i class="fa-sharp fa-solid fa-video"></i>Your videos
+                    </a>
+                    <a href="#">
+                        <i class="fa-sharp fa-solid fa-clock"></i>Watch later
+                    </a>
+                    <a href="#">
+                        <i class="fa-sharp fa-solid fa-thumbs-up"></i>Liked
+                    </a>
+                </div>
+            </div>
+            <div class="side-wrapper">
+                <div class="side-title">
+                    Subscription
+                </div>
+                <div class="side-menu">
+                    <a href="#">
+                        <i class="fa-solid fa-volleyball"></i>sports
+                    </a>
+                    <a href="#">
+                        <i class="fa-solid fa-gamepad"></i>gaming
+                    </a>
+                    <a href="#">
+                        <i class="fa-sharp fa-solid fa-music"></i>music
+                    </a>
+                    <a href="#">
+                        <i class="fa-sharp fa-solid fa-newspaper"></i>news
+                    </a>
+                    <a href="#">
+                        <i class="fa-solid fa-tv"></i>movies
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="main-container">
+                <div class="main-header">
+                    <div class="header">
+                        <a href="#" class="main-header-link active">Desktop
+                        </a>
+                        <a href="#" class="main-header-link">Mobile
+                        </a>
+                        <a href="#" class="main-header-link">Python
+                        </a>
+                        <a href="#" class="main-header-link">HtmL5
+                        </a>
+                        <a href="#" class="main-header-link">Css
+                        </a>
+                        <a href="#" class="main-header-link">Java
+                        </a>
+                        <a href="#" class="main-header-link">React
+                        </a>
+                        <a href="#" class="main-header-link">Graphics
+                        </a>
+                        <a href="#" class="main-header-link">Javascript
+                        </a>
+                        <a href="#" class="main-header-link">Bootstrap
+                        </a>
+                        <a href="#" class="main-header-link">canva
+                        </a>
+                        </div>
+                    </div>
+                    <div class="content-wrapper">
+                        <div class="content-section">
+                            <div class="apps-card">
+                                <div class="app-card">
+                                    <a href="#">
+                                    <iframe width="370" height="315" src="https://www.youtube.com/embed/rkxQPwLNcxY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </a>
+                                    <div class="flex-div">
+                                        <div class="chanel-image">
+                                            <img src="https://i.pinimg.com/originals/65/4e/f5/654ef5e361ae962e1fcee5975325fcc5.jpg">
+                                        </div>
+                                        <div class="vid-info">
+                                            <a href="#">
+                                                how to make website like youtube with html css & javascript.
+                                            </a>
+                                            <div class="content-text">
+                                                <p>Codemania</p>
+                                                <p>1k views .2 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><div class="app-card">
+                                    <a href="#">
+                                    <iframe width="370" height="315" src="https://www.youtube.com/embed/QEbDj6E3S9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </a>
+                                    <div class="flex-div">
+                                        <div class="chanel-image">
+                                            <img src="https://i.pinimg.com/originals/65/4e/f5/654ef5e361ae962e1fcee5975325fcc5.jpg">
+                                        </div>
+                                        <div class="vid-info">
+                                            <a href="#">
+                                                how to make a website like youtube with html css & javascript.
+                                            </a>
+                                            <div class="content-text">
+                                                <p>Codemania</p>
+                                                <p>1k views .2 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="app-card">
+                                    <a href="#">
+                                    <iframe width="370" height="315" src="https://www.youtube.com/embed/QEbDj6E3S9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </a>
+                                    <div class="flex-div">
+                                        <div class="chanel-image">
+                                            <img src="https://i.pinimg.com/originals/65/4e/f5/654ef5e361ae962e1fcee5975325fcc5.jpg">
+                                        </div>
+                                        <div class="vid-info">
+                                            <a href="#">
+                                                how to make a website like youtube with html css & javascript.
+                                            </a>
+                                            <div class="content-text">
+                                                <p>Codemania</p>
+                                                <p>1k views .2 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <div class="app-card">
+                                    <a href="#">
+                                    <iframe width="370" height="315" src="https://www.youtube.com/embed/QEbDj6E3S9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </a>
+                                    <div class="flex-div">
+                                        <div class="chanel-image">
+                                            <img src="https://i.pinimg.com/originals/65/4e/f5/654ef5e361ae962e1fcee5975325fcc5.jpg">
+                                        </div>
+                                        <div class="vid-info">
+                                            <a href="#">
+                                                how to make a website like youtube with html css & javascript.
+                                            </a>
+                                            <div class="content-text">
+                                                <p>Codemania</p>
+                                                <p>1k views .2 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <div class="app-card">
+                                    <a href="#">
+                                    <iframe width="370" height="315" src="https://www.youtube.com/embed/QEbDj6E3S9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </a>
+                                    <div class="flex-div">
+                                        <div class="chanel-image">
+                                            <img src="https://i.pinimg.com/originals/65/4e/f5/654ef5e361ae962e1fcee5975325fcc5.jpg">
+                                        </div>
+                                        <div class="vid-info">
+                                            <a href="#">
+                                                how to make a website like youtube with html css & javascript.
+                                            </a>
+                                            <div class="content-text">
+                                                <p>Codemania</p>
+                                                <p>1k views .2 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <div class="app-card">
+                                    <a href="#">
+                                    <iframe width="370" height="315" src="https://www.youtube.com/embed/QEbDj6E3S9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </a>
+                                    <div class="flex-div">
+                                        <div class="chanel-image">
+                                            <img src="https://i.pinimg.com/originals/65/4e/f5/654ef5e361ae962e1fcee5975325fcc5.jpg">
+                                        </div>
+                                        <div class="vid-info">
+                                            <a href="#">
+                                                how to make a website like youtube with html css & javascript.
+                                            </a>
+                                            <div class="content-text">
+                                                <p>Codemania</p>
+                                                <p>1k views .2 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <div class="app-card">
+                                    <a href="#">
+                                    <iframe width="370" height="315" src="https://www.youtube.com/embed/QEbDj6E3S9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </a>
+                                    <div class="flex-div">
+                                        <div class="chanel-image">
+                                            <img src="https://i.pinimg.com/originals/65/4e/f5/654ef5e361ae962e1fcee5975325fcc5.jpg">
+                                        </div>
+                                        <div class="vid-info">
+                                            <a href="#">
+                                                how to make a website like youtube with html css & javascript.
+                                            </a>
+                                            <div class="content-text">
+                                                <p>Codemania</p>
+                                                <p>1k views .2 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="app-card">
+                                    <a href="#">
+                                    <iframe width="370" height="315" src="https://www.youtube.com/embed/rkxQPwLNcxY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </a>
+                                    <div class="flex-div">
+                                        <div class="chanel-image">
+                                            <img src="https://i.pinimg.com/originals/65/4e/f5/654ef5e361ae962e1fcee5975325fcc5.jpg">
+                                        </div>
+                                        <div class="vid-info">
+                                            <a href="#">
+                                                how to make a website like youtube with html css & javascript.
+                                            </a>
+                                            <div class="content-text">
+                                                <p>Codemania</p>
+                                                <p>1k views .2 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</body>
+</html>
